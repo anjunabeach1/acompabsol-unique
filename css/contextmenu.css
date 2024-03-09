@@ -1,0 +1,163 @@
+.absol-context-menu-hook {
+    position: absolute;
+    z-index: -100000;
+    width: 14px;
+    height: 14px;
+    top: 0;
+    opacity: 0;
+    resize: none;
+    cursor: default;
+}
+
+.absol-context-hinge-fixed-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000000001;
+}
+
+.absol-context-hinge {
+    position: relative;
+    width: 0;
+    height: 0;
+}
+
+.absol-context-hinge > .absol-context-menu {
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    visibility: hidden;
+    z-index: 55;
+    display: inline-block;
+}
+
+.absol-context-hinge .absol-vmenu,
+.absol-context-hinge .absol-hmenu {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    /* background-color: rgb(37, 37, 38);
+    -webkit-box-shadow: 2px 2px 9px 0px rgba(7, 7, 7, 1);
+    -moz-box-shadow: 2px 2px 9px 0px rgb(7, 7, 7, 1);
+    box-shadow: 2px 2px 9px 0px rgba(7, 7, 7, 1); */
+    color: black;
+    background-color: rgb(252, 252, 255);
+    -webkit-box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    -moz-box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+}
+
+.absol-context-menu-anchor.dark .absol-hmenu,
+.absol-context-menu-anchor.dark .absol-vmenu,
+.dark .absol-context-menu-anchor .absol-hmenu,
+.dark .absol-context-menu-anchor .absol-vmenu {
+    background-color: rgb(37, 37, 38);
+}
+
+
+.absol-context-menu-anchor {
+    position: fixed;
+    z-index: -1000;
+    left: 0;
+    top: 0;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    font-size: inherit;
+}
+
+.absol-context-menu-anchor > textarea {
+    width: 160px;
+    height: 160px;
+    margin: 0;
+    resize: none;
+    border: none;
+    opacity: 0;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.absol-context-menu-anchor.absol-active {
+    z-index: 100000000 !important;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.absol-context-menu-anchor .absol-vmenu,
+.absol-context-menu-anchor .absol-hmenu {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    color: black;
+    background-color: rgb(252, 252, 255);
+    -webkit-box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    -moz-box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+}
+
+
+.as-system-context-menu {
+    /** nothing here, to define use system context menu**/
+}
+
+.as-context-menu-ctn {
+    font-size: var(--as-context-menu-font-size);
+    font-family: var(--as-input-font-family);
+}
+
+.as-context-menu-ctn.as-anchor-modal,
+.absol-context-menu-anchor.as-anchor-modal{
+    position: fixed;
+    z-index: 8000000;
+    left: 0 !important;
+    right: 0 !important;;
+    top: 0 !important;;
+    bottom: 0 !important;;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(155, 155, 155, 0.3);
+}
+
+.as-context-menu-ctn.as-anchor-modal::before,
+.as-context-menu-ctn.as-anchor-modal > .absol-vmenu ,
+.absol-context-menu-anchor.as-anchor-modal::before,
+.absol-context-menu-anchor.as-anchor-modal > .absol-vmenu
+{
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.as-context-menu-ctn.as-anchor-modal > .absol-vmenu,
+.absol-context-menu-anchor.as-anchor-modal > .absol-vmenu
+{
+    text-align: left;
+}
+
+
+.as-context-menu-ctn.as-anchor-modal::before,
+.absol-context-menu-anchor.as-anchor-modal::before{
+    content: "";
+    height: 100%;
+}
+
+.as-context-menu-ctn.as-anchor-modal > .absol-vmenu,
+.absol-context-menu-anchor.as-anchor-modal > .absol-vmenu {
+    min-width: 70%;
+    max-width: calc(100% - 10px);
+    max-height: calc(100% - 10px);
+}
+
+.as-quick-menu {
+    font-size: 1rem;
+}
+
+.as-quick-menu{
+    --available-height: calc(100vh - 20px);
+    max-height: var(--available-height);
+}
+
+.absol-context-menu-anchor.as-anchor-modal  .as-quick-menu{
+    max-height: calc(100vh - 20px);
+}

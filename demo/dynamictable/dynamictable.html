@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DynamicTable</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+    <script src="../../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+    <style>
+        html {
+            font-size: 14px;
+        }
+
+        .as-flexicon-button {
+            height: 30px;
+        }
+
+        body.loading > button {
+            display: none !important;
+        }
+
+        .as-dt-body-cell {
+            /*white-space: nowrap;*/
+        }
+    </style>
+</head>
+
+<body class="loading">
+<script class="viewable">
+    absol.remoteNodeRequireAsync('./dynamictable.js')
+
+</script>
+
+</html>

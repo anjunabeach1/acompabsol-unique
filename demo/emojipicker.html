@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Emoji</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+
+    <style>
+        #demo2 {
+            text-align: center;
+            padding: 5px;
+        }
+
+        #demo2 .mdi {
+            display: inline-block;
+            margin-left: 130px;
+        }
+
+        #demo3 {
+            padding: 5px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Emoji Picker</h1>
+    <div id="demo1"></div>
+    <h1>Emoji Picker Tooltip</h1>
+    <div id="demo2">
+        <span class="mdi mdi-emoticon-happy-outline"></span>
+        <span class="mdi mdi-emoticon-happy-outline"></span>
+        <span class="mdi mdi-emoticon-happy-outline"></span>
+        <span class="mdi mdi-emoticon-happy-outline"></span>
+    </div>
+    <h1>Emoji Counter</h1>
+    <div id="demo3"></div>
+
+    <script class="viewable">
+        (function () {
+            var _ = absol._;
+            var $ = absol.$;
+            var demo1 = $('#demo1');
+            var ep = _('emojipicker').addTo(demo1);
+            var input = _('textarea').addStyle({ width: '90vw' }).addTo(demo1);
+            ep.on('pick', function (event) {
+                input.value += event.key;
+            });
+
+            var demo2 = $('#demo2');
+            var EmojiPickerTooltip = absol.require('emojipickertooltip');
+            $('span', demo2, function (span) {
+                EmojiPickerTooltip.toggleWhenClick(span, {
+                    onSelect: function (icon) {
+                        console.log(span, icon);
+                        //icon is "REMOVE" if press remove icon
+                    }, orientation: 'top'
+                });
+            });
+            var demo3Div = $('#demo3');
+
+            var emojiCounter = _({
+                tag: 'emojicounter',
+                props: {
+                    text: '(heart)',
+                    count: 23,
+                    users: [
+                        {
+                            avatar: 'https://avatars2.githubusercontent.com/u/9133017?s=460&v=4',
+                            name: "Pham Quoc Du Thien"
+                        },
+                        {
+                            avatar: 'https://lab.daithangminh.vn/home_co/carddone/../user_avatars/avatar-default.png',
+                            name: "Thanh Yen"
+                        },
+                    ]
+                }
+            }).addTo(demo3Div);
+
+            var emojiCounter1 = _({
+                tag: 'emojicounter',
+                props: {
+                    text: '(cwl)',
+                    count: 1,
+                    users: [
+                        {
+                            avatar: 'https://avatars2.githubusercontent.com/u/9133017?s=460&v=4',
+                            name: "Pham Quoc Du Thien"
+                        },
+                        {
+                            avatar: 'https://lab.daithangminh.vn/home_co/carddone/../user_avatars/avatar-default.png',
+                            name: "Thanh Yen",
+                            onclick: function (){
+                                console.log(this);//this is current user, not a element
+                            }
+                        },
+                    ]
+                }
+            }).addTo(demo3Div);
+
+            var emojiCounterList = _({
+                tag: 'emojicounterlist',
+                props: {
+                    counters: {
+                        '(cwl)': {
+                            count: 1,
+                            users: [
+                                {
+                                    avatar: 'https://avatars2.githubusercontent.com/u/9133017?s=460&v=4',
+                                    name: "Pham Quoc Du Thien"
+                                },
+                                {
+                                    avatar: 'https://lab.daithangminh.vn/home_co/carddone/../user_avatars/avatar-default.png',
+                                    name: "Thanh Yen",
+                                    onclick: function (){
+                                        console.log(this);//this is current user, not a element
+                                    }
+                                }
+                            ]
+                        },
+                        '(heart)': {
+                            count: 25
+                        }
+                    }
+                }
+            }).addTo(demo3Div);
+            setTimeout(function () {
+                emojiCounterList.counters = {
+                    '(heart)': {
+                        count: 10
+                    },
+                    ';(': {
+                        count: 7
+                    }
+                }
+            }, 3000);
+            setTimeout(function () {
+                emojiCounterList.counters = {
+                    '(heart)': {
+                        count: 10
+                    },
+                    '(cwl)': {
+                        count: 500
+                    },
+                    ';(': {
+                        count: 7
+                    }
+                }
+            }, 6000);
+        })();
+
+    </script>
+
+    <script src="https://absol.cf/absol/demo/autohightlighting.js?"></script>
+
+</body>
+
+</html>

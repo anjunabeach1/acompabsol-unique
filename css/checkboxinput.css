@@ -1,0 +1,87 @@
+:root {
+    --candy-border-color: #929292;
+    --candy-hover-background-color: #eeeee9;
+    --candy-disabled-background-color: #ebebe4;
+}
+
+label.as-checkbox-input {
+    display: inline-block;
+    position: relative;
+    width: calc(1em + 2px);
+    height: calc(1em + 2px);
+    font-size: inherit;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 0.25em;
+    padding: 0;
+    margin: 0; /*fix boostrap override*/
+}
+
+.as-checkbox-input:not(.as-read-only):not(.as-disabled){
+    cursor: pointer;
+}
+
+
+label.as-checkbox-input:hover:not(.as-read-only) .bound,
+.absol-checkbox:hover:not(.as-read-only) .bound {
+    fill: var(--candy-hover-background-color);
+}
+
+.as-checkbox-input .tick,
+.as-checkbox-input .minus {
+    fill: #606060;
+}
+
+
+.as-checkbox-input input.as-checkbox-input-value {
+    font-size: inherit;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    opacity: 0.0;
+    z-index: -100000000000;
+}
+
+input.as-checkbox-input-value:not(:checked) ~ svg .tick {
+    opacity: 0;
+}
+
+.as-checkbox-input.as-has-minus .minus {
+    opacity: 1;
+}
+
+.as-checkbox-input .minus,
+input.as-checkbox-input-value:checked ~ svg .minus {
+    opacity: 0;
+}
+
+
+label.as-checkbox-input .bound {
+    stroke: var(--candy-border-color);
+    fill: white;
+}
+
+label.as-checkbox-input .tick {
+    opacity: 1;
+    transition: opacity 0.1s;
+}
+
+label.as-checkbox-input .minus {
+    transition: opacity 0.1s;
+}
+
+label.as-checkbox-input.as-disabled > svg .bound,
+label.as-checkbox-input.as-disabled:hover > svg .bound {
+    stroke: #929292;
+    fill: #ebebe4;
+}
+
+
+.as-checkbox-input > svg {
+    width: 100%;
+    height: 100%;
+}
+
+.as-checkbox-input.as-read-only.as-border-none .bound{
+    display: none;
+}

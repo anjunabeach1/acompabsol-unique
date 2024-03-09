@@ -1,0 +1,204 @@
+.absol-exp-node {
+    height: 2em;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    font-size: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    color: rgb(33, 33, 34);
+}
+
+.absol-exp-node .toggler-ico {
+    width: 0.7em;
+    height: 0.7em;
+    margin-right: 0.35em;
+}
+
+.absol-exp-node .toggler-ico path {
+    fill: rgb(104, 104, 104);
+}
+
+.absol-exp-node.status-removable .toggler-ico,
+.absol-exp-node.status-modified .toggler-ico {
+    display: none;
+}
+
+.absol-exp-node:not(.status-open) .toggle-open {
+    display: none;
+}
+
+.absol-exp-node:not(.status-close) .toggle-close {
+    display: none;
+}
+
+
+
+.absol-exp-node:hover .remove-ico {
+    visibility: visible;
+}
+
+
+
+.absol-exp-node.status-removable .remove-ico,
+.absol-exp-node.status-modified .remove-ico {
+    display: inline-block;
+}
+
+.absol-exp-node.status-removable .remove-ico .modified {
+    visibility: hidden;
+}
+
+.absol-exp-node.status-modified .remove-ico .close {
+    visibility: hidden;
+}
+
+.absol-exp-node.status-modified .remove-ico:hover .close {
+    visibility: visible;
+}
+
+.absol-exp-node.status-modified .remove-ico:hover .modified {
+    visibility: hidden;
+}
+
+
+.absol-exp-node .remove-ico {
+    width: 0.9em;
+    height: 0.9em;
+    display: none;
+    visibility: hidden;
+    margin-left: -0.3em;
+    margin-right: 0.45em;
+}
+
+.absol-exp-node .remove-ico .close,
+.absol-exp-node .remove-ico .modified {
+    fill: rgb(169, 169, 169);
+    stroke: none;
+}
+
+
+.absol-exp-node.has-status {
+    padding-right: 2.5em;
+}
+
+.absol-exp-node>div,
+.absol-exp-node>svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.absol-exp-node .editing input {
+    color: khaki;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.absol-exp-node:hover {
+    background-color: var(--as-transparent-button-hover-color);
+}
+
+.absol-exp-node:focus,
+.absol-exp-node.as-active:focus {
+    background-color: var(--as-transparent-button-focus-color);
+}
+
+.absol-exp-node.as-active {
+    background-color: var(--as-transparent-button-active-color);
+}
+
+
+
+.absol-exp-node-name {
+    /* -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; */
+    user-select: none;
+    vertical-align: middle;
+    color: black;
+    margin-left: 0.5em;
+}
+
+.absol-exp-node-desc {
+    color: rgb(104, 104, 104);
+    margin-left: 0.5em;
+    font-size: 0.85em;
+	vertical-align: middle;
+}
+
+.absol-exp-node-desc:empty {
+    margin-left: 0;
+}
+
+
+.absol-exp-node-expand-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.2em;
+    height: 0.5em;
+    width: 0.5em;
+}
+
+img.absol-exp-node-ext-icon {
+    display: none;
+}
+
+.absol-exp-node-ext-icon,
+.absol-exp-node-ext-icon>img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+div.absol-exp-node-ext-icon:empty {
+    display: none;
+}
+
+div.absol-exp-node-ext-icon {
+    text-align: center;
+}
+
+.absol-exp-node-ext-icon>.mdi,
+.absol-exp-node-ext-icon>span .absol-exp-node-ext-icon>svg {
+    line-height: 1em;
+    font-size: 1.5em;
+}
+
+img.absol-exp-node-ext-icon[src] {
+    display: inline-block;
+}
+
+
+.absol-exp-tree>.absol-exp-node {
+    width: 100%;
+    display: block;
+}
+
+.absol-exp-tree.hide-children>.absol-exp-items {
+    display: none;
+}
+
+
+.dark .toggler-ico path {
+    fill: rgb(169, 169, 169);
+}
+
+
+.dark .absol-exp-node-name {
+    color: rgb(204, 204, 204);
+}
+
+.dark .absol-exp-node-desc {
+    color: rgb(169, 169, 170);
+}
+
+.dark .absol-exp-node {
+    color: rgb(169, 169, 170);
+}

@@ -1,0 +1,27 @@
+.am-dual-select-box {
+
+}
+
+
+.am-dual-select-box .absol-selectlist-item span {
+    white-space: normal;
+    display: inline-block;
+    margin-right: 0;
+    line-height: calc(30rem / 14);
+}
+
+.am-mobile-theme.bsc-white .am-dual-select-box .absol-selectlist-item span{
+    line-height: calc(30rem / 14);
+}
+
+.am-dual-select-box .absol-selectlist-item {
+    height: auto;
+}
+
+.am-mobile-theme.bsc-white .am-dual-select-box .absol-selectlist-item {
+    height: auto;
+}
+
+.am-dual-select-box .absol-selectlist-item:not(:last-child) {
+    border-bottom: 1px solid #efefef;
+}

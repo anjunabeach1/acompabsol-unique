@@ -1,0 +1,68 @@
+.as-has-board-table-drag,
+.as-has-board-table-drag * {
+    cursor: grabbing;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+
+
+.as-board-table {
+    overflow: visible;
+    position: relative;
+
+}
+
+.as-board-drag-zone {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+
+.as-board {
+    white-space: normal;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+}
+
+/**
+Bug note: don't put fixed position element to a element which has transform
+ */
+.as-board-moving {
+    transform-origin: 30% 55%;
+    transform: rotate(5deg);
+    transition: transform 0.05s;
+    user-select: none;
+    pointer-events: none;
+    position: fixed !important;
+    z-index: 2000;
+}
+
+
+.as-board-place-holder {
+    opacity: 0.3;
+}
+
+.as-board-table-prevent-context {
+    position: fixed;
+    --x: -10000px;
+    --y: -10000px;
+    left: calc(var(--x) - 100px);
+    top: calc(var(--y) - 100px);
+    opacity: 0;
+    z-index: 100000000;
+    width: 200px;
+    height: 200px;
+    cursor: default;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}

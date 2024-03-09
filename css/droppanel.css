@@ -1,0 +1,44 @@
+
+.absol-drop-panel-head {
+    height: 2.75em;
+    line-height: 2.75em;
+    -webkit-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 3px 4px -3px rgba(0, 0, 0, 0.75);
+    background-color: rgba(240, 240, 242);
+    color: black;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.absol-drop-panel-head .toggler-ico path {
+    fill: rgb(104, 104, 104);
+}
+
+
+.dark .absol-drop-panel-head {
+    background-color: rgba(54, 54, 56);
+    color: rgb(204, 204, 204);
+}
+
+.absol-drop-panel.show .absol-drop-panel-body {
+    height:auto;
+}
+
+.absol-drop-panel-body {
+    transition: height 0.2s;
+    height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.absol-drop-panel.show>.absol-drop-panel-head  .toggle-close{
+    display: none;
+}
+
+.absol-drop-panel:not(.show)>.absol-drop-panel-head  .toggle-open{
+    display: none;
+}
+

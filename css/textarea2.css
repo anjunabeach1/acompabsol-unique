@@ -1,0 +1,17 @@
+.absol-textarea2 {
+    overflow: hidden;
+    resize: none;
+    box-sizing: border-box;
+    --content-height: 1.425em;
+    height: var(--content-height);
+    font: inherit;
+}
+
+.absol-textarea2.as-border-none {
+    border: none;
+    outline: none;
+}
+
+.absol-textarea2:disabled {
+    background-color: var(--as-disabled-background-color);
+}

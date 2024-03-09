@@ -1,0 +1,46 @@
+.absol-trackbar-input {
+    box-sizing: border-box;
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    min-width: 13.5em;
+    height: 2em;
+    --input-width: 4em;
+    font-size: 1rem;
+}
+
+.absol-trackbar-input::after {
+    content: "";
+    vertical-align: middle;
+    height: 100%;
+}
+
+.absol-trackbar-input > .absol-trackbar {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - var(--input-width) - 5px);
+}
+
+
+.absol-trackbar-input > .as-flexicon-input {
+    width: var(--input-width);
+    vertical-align: middle;
+    height: 2em;
+    box-sizing: border-box;
+    margin-left: 5px;
+}
+
+.absol-trackbar-input.as-disabled {
+    pointer-events: none;
+    color: #777777;
+
+}
+
+.absol-trackbar-input input {
+    color: inherit;
+    font-size: inherit;
+}
+
+.absol-trackbar-input.as-border-none .as-flexicon-input {
+    border: none;
+}

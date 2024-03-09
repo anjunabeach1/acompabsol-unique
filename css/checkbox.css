@@ -1,0 +1,88 @@
+/** align middle in table cell **/
+.KPIsimpletableclass td > .absol-checkbox:first-child:last-child,
+.KPIsimpletableclass td > .absol-checkbox.as-no-label:first-child:last-child .as-checkbox-input {
+    display: block;
+    margin: auto;
+}
+
+.cardsimpletableclass > table > tbody > tr > td > .absol-checkbox:first-child:last-child {
+    display: block;
+}
+
+.absol-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 16px;
+}
+
+.absol-checkbox:not(.as-read-only):not(.as-disabled) {
+    cursor: pointer;
+    user-select: none;
+}
+
+.absol-checkbox.right > .absol-checkbox-label.as-right {
+    display: none;
+}
+
+
+.absol-checkbox:not(.right) > .absol-checkbox-label.as-left {
+    display: none;
+}
+
+.absol-checkbox-label {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+.absol-checkbox-label.as-left {
+    padding-right: 0.3em;
+}
+
+
+.absol-checkbox-label.as-right {
+    padding-left: 0.3em;
+}
+
+.absol-checkbox.as-no-label {
+    width: calc(1em + 2px);
+    height: calc(1em + 2px);
+}
+
+
+.absol-checkbox.as-no-label .absol-checkbox-label {
+    display: none;
+}
+
+.absol-checkbox.as-no-label .as-checkbox-input {
+    display: block;
+}
+
+.absol-checkbox.as-disabled .absol-checkbox-label {
+    color: var(--as-disabled-text-color);
+}
+
+
+.absol-checkbox.as-wrap-text {
+    white-space: nowrap;
+}
+
+.absol-checkbox.as-wrap-text .absol-checkbox-label {
+    white-space: normal;
+}
+
+.absol-checkbox.as-wrap-text > * {
+    vertical-align: top;
+}
+
+.absol-checkbox.as-wrap-text .absol-checkbox-label {
+    max-width: calc(100% - 24px);
+}
+
+.absol-checkbox.as-read-only .as-checkbox-input {
+    pointer-events: none;
+}
+
+.absol-checkbox.as-read-only.as-border-none .bound {
+    display: none;
+}

@@ -1,0 +1,70 @@
+.kv-comment-item {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+
+    padding: 0 calc(2em + 7px) 0 calc(2.85em + 20px);
+    cursor: pointer;
+    background-color: white;
+}
+
+.kv-comment-item:hover{
+    background-color: #f2f5fa;
+}
+
+
+.kv-comment-avatar-ctn {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+}
+
+.kv-comment-avatar-ctn::before,
+.kv-comment-item-flag-ctn::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.kv-comment-avatar {
+    width: 2.85em;
+    height: 2.85em;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.kv-comment-item-content {
+    padding: 5px 10px;
+    border: 1px solid #d6d6d6;
+    border-radius: 7px;
+    line-height: 1.5;
+}
+
+
+.kv-comment-item-flag-ctn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+}
+
+.kv-comment-item-flag-unread {
+    display: none;
+    vertical-align: middle;
+    width: 0.75em;
+    height: 0.75em;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.kv-comment-item.as-unread .kv-comment-item-flag-unread {
+    display: inline-block;
+}
+
+.kv-comment-item-time {
+    font-weight: bold;
+}

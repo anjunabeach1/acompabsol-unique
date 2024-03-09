@@ -1,0 +1,80 @@
+.as-linear-color-bar {
+    position: relative;
+    height: 2em;
+}
+
+.as-linear-color-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+.as-linear-color-value-text {
+    position: absolute;
+    top: 0;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.as-linear-color-min-value-text,
+.as-linear-color-max-value-text {
+    position: absolute;
+    bottom: 0;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+
+
+.as-linear-color-min-value-text {
+    left: 0;
+}
+
+.as-linear-color-rect {
+    stroke: none;
+}
+
+
+.as-linear-color-value-arrow {
+    fill: rgb(244, 124, 32);
+    stroke: rgb(244, 124, 32);
+}
+
+.as-linear-color-split-line {
+    stroke: white;
+}
+
+
+.as-linear-color-tiny-bar {
+    font-size: 1rem;
+    --value: 1;
+    --extend: 0.5;
+    --color: green;
+    position: relative;
+
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+.as-linear-color-tiny-text {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 0.3em;
+    width: 4em;
+    text-align: right;
+}
+
+.as-linear-color-tiny-bar-rect {
+    height: calc(10em / 14);
+    width: calc(10em * var(--value) / 1.4);
+    max-width: calc(10em / 1.4 + 10em * var(--extend) / 1.4);
+    min-width: 3px;
+    background-color: var(--color);
+    display: inline-block;
+    vertical-align: middle;
+}

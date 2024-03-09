@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selectmenu 2</title>
+    <script src="../dist/absol-acomp.js?time=0606729"></script>
+</head>
+
+<body>
+<script src="https://absol.cf/acomp/demo/selectmenu2_data.1.js"></script>
+<script>
+    var $ = absol.$;
+    var _ = absol._;
+    items.forEach((it, i) => {
+        it.value = i;
+        // it.desc = absol.string.randomPhrase(56);
+        it.lastInGroup = Math.random() < 1 / 10;
+        it.disabled = Math.random() < 0.2;
+    });
+    _({
+        style: {
+            height: '500px',
+        }
+    }).addTo(document.body);
+    _({
+        tag: 'selectmenu',
+        props: {
+            items: items,
+            enableSearch: true
+        }
+    }).addTo(document.body);
+    var item2 = items.map((it, i) => {
+        it = Object.assign({}, it);
+        it.value = i;
+        it.desc = absol.string.randomPhrase(56);
+        return it;
+    });
+    _({
+        tag: 'selectmenu',
+        props: {
+            items: item2,
+            enableSearch: true
+        }
+    }).addTo(document.body);
+    _({
+        tag: 'selectmenu',
+        props: {
+            items: [],
+            enableSearch: true
+        }
+    }).addTo(document.body);
+    _({
+        style: {
+            height: '500px',
+        }
+    }).addTo(document.body);
+</script>
+<button onclick="newTab()">NewTab</button>
+<div style="height: 90vh"></div>
+</body>
+
+</html>

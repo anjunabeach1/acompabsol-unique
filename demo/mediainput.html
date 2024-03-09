@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Media Input</title>
+    <meta charset="UTF-8">
+    <script src="https://absol.cf/absol/dist/polyfill.js"></script>
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+    <!-- <script>hljs.initHighlightingOnLoad();</script> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2>Media Input</h2>
+    <script>
+        runDebugTask();
+    </script>
+    <script class="viewable">
+        var textEditor = absol._('texteditor').addTo(document.body).addStyle('font-size', '14px');
+        var x = absol._('mediainput').addTo(document.body);
+        x.plugins = [
+            {
+                getTriggerInner: function (mediainputElt, _, $, triggerButton) {
+                    return _('<svg width="24" height="24" viewBox="0 0 24 24">\
+                                <path fill="#3177e8" d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M11,24H13V22H11V24M7,24H9V22H7V24M15,24H17V22H15V24Z" />\
+                            </svg>');
+                },
+                getContent: function (mediainputElt, _, $, container, oldContent) {
+                    if (oldContent) return oldContent;// reuse
+                    this._view = _({
+                        style: {
+                            padding: '5px'
+                        },
+                        child: [
+                            {
+                                tag: 'label',
+                                child: { text: 'Thêm: ' }
+                            },
+                            {
+                                tag: 'input',
+                                on: {
+                                    keydown: function (ev) {
+                                        if (ev.key == "Enter" && this.value.length > 0) {
+                                            mediainputElt.appendText(this.value);
+                                            this.value = "";
+                                            mediainputElt.releasePlugin();//hide content and release itselt
+                                        }
+                                    }
+                                }
+                            }]
+                    });
+
+                    return this._view;
+                }
+
+            },
+            {
+                //plugin without content
+
+                getTriggerInner: function (mediainputElt, _, triggerButton) {
+                    return _('span.mdi.mdi-content-paste');
+                },
+                onActive: function (mediainputElt) {
+                    navigator.clipboard.readText().then(function (text) {
+                        mediainputElt.appendText(text)
+                    });
+
+                    mediainputElt.releasePlugin();//relase for next active
+                }
+            }
+        ]
+    </script>
+
+    <h2 id="h-2">Message Input</h2>
+
+
+    <style class="viewable">
+        .message-box {
+            width: 800px;
+            height: 700px;
+            position: relative;
+            border: solid 1px #ddd;
+            overflow-y: auto;
+        }
+
+        .input-ctn {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: aliceblue;
+        }
+
+        .message-ctn{}
+
+        .message {
+            width: 50%;
+            padding: 10px;
+            background-color: deepskyblue;
+        }
+    </style>
+    <div class="message-box">
+        <div class="message-ctn absol-bscroller"></div>
+        <div class="input-ctn"></div>
+    </div>
+
+    <script class="viewable">
+            (function () {
+                var _ = absol._;
+                var $ = absol.$;
+                var messBox = $('.message-box');
+                var inputCtn = $('.input-ctn');
+                var messageCtn = $('.message-ctn');
+                var messInput = _({
+                    tag: 'messageinput',
+                    on: {
+                        change: function () {
+                            // console.log(this.text, this.files, this.images);// files, images : Array<Files> text: String
+
+                        },
+                        sizechange: function (event) {
+                            messageCtn.addStyle('height', 'calc(100% - ' + (event.bound.height) + 'px)')
+                        },
+                        send: function () {
+                            console.log('send', this.text, this.files, this.images)
+                            this.clearAllContent();
+                        }
+                    }
+                });
+                inputCtn.addChild(messInput);
+
+            })()
+    </script>
+
+
+
+    <script src="https://absol.cf/absol/demo/autohightlighting.js?"></script>
+
+
+</body>
+
+</html>

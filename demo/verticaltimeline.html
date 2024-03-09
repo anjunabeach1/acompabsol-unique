@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VerticalTimeline</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+</head>
+
+<body>
+<style>
+
+</style>
+
+<script>
+    function render(o) {
+        return absol._(o).addTo(document.body);
+    }
+
+    (function () {
+        var _ = absol._;
+        var $c = absol.$;
+        var vTimeline = _({
+            tag: 'verticaltimeline',
+            props: {
+                items: [
+                    { text: 'Welcome aboard' },
+                    { text: 'About company' },
+                    { text: 'Profile & Forms' },
+                    { text: 'Company policies & handbook' },
+                    { text: 'Require Documents' },
+                    { text: 'Confirm' }
+
+                ],
+                current: 2//value: -1..6
+            }
+        });
+
+        setInterval(function () {
+            vTimeline.current = -1 + (vTimeline.current + 2) % 8;
+            absol.require('snackbar').show('current = ' + vTimeline.current);
+        }, 5000)
+
+        render({
+            class: 'kv-document-2-site',
+            style: {
+                //your custom
+                width: '90vw',
+                height: '90vh',
+                boxShadow: '0px 2px 7px 0px rgba(0,0,0,0.18)'
+            },
+            child: [
+                {
+                    class: 'kv-document-2-site-left',
+                    child: [
+                        {
+                            class: 'kv-document-2-site-left-header',
+                            child: [
+                                {
+                                    tag: 'img',
+                                    class: 'kv-document-2-site-left-header-logo',
+                                    props: {
+                                        src: 'https://raw.githubusercontent.com/duthienkt/absol/master/logo.svg?sanitize=true'
+                                    }
+                                },
+                                {
+                                    tag: 'span',
+                                    class: 'kv-document-2-site-left-header-text',
+                                    child: { text: 'ABSOL.JS' }
+                                },
+                            ]
+                        },
+                        vTimeline
+                    ]
+                },
+                {
+                    class: ['kv-document-2-site-right', 'kv-document-page'],
+                    child: [
+                        {
+                            class: 'kv-document-page-header',
+                            child: [
+                                {
+                                    tag: 'span',
+                                    class: 'kv-document-page-title',
+                                    child: { text: 'Tiêu đề' }
+                                },
+
+                                {
+                                    tag: 'button',
+                                    class: ['kv-document-transparent-btn', 'kv-document-page-close-btn'],
+                                    child: 'span.mdi.mdi-close'
+                                }]
+                        },
+                        {
+                            class: 'kv-document-page-content',
+                            child: Array(1000).fill("<p>Content .........</p>")
+
+                        },
+                        {
+                            class: 'kv-document-page-footer',
+                            child:[
+                                {
+                                    class:'kv-document-page-footer-left',
+                                    child:[
+                                        {
+                                            tag: 'a',
+                                            class: 'kv-document-link',
+                                            child: {
+                                                tag: 'span',
+                                                child: { text: 'PREVIOUS STEP' }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    class:'kv-document-page-footer-right',
+                                    child:[
+                                        {
+                                            tag: 'a',
+                                            class: ['kv-document-link', 'kv-variant-primary'],
+                                            child: {
+                                                tag: 'span',
+                                                child: { text: 'NEXT →' }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+            ]
+        });
+
+    })();
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+.absol-single-page {
+    position: relative;
+}
+
+
+.absol-single-page-header {
+    box-sizing: border-box;
+    z-index: 2;
+    display: block;
+}
+
+.absol-single-page-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+
+.absol-single-page-scroller-viewport {
+    min-height: 100%;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.absol-single-page-scroller {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.absol-single-page.as-viewport-full > .absol-single-page-scroller > .absol-single-page-scroller-viewport {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.absol-single-page.as-no-scroll > .absol-single-page-scroller {
+    overflow: hidden;
+}

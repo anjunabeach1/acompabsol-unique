@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VRootMenu</title>
+    <script src="../dist/absol-acomp.js?time=<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+    <script src="vrootmenu_data.js?time=<?php  echo stat('./vrootmenu_data.js')['mtime'];?>"></script>
+    <link rel="stylesheet" href="vrootmenu_bsc.css?time=<?php  echo stat('vrootmenu_bsc.css')['mtime'];?>">
+
+</head>
+<body>
+<script>
+    var _ = absol._;
+    var $ = absol.$;
+
+    var mVRootMenu = _({
+        tag: 'vrootmenu',
+        props: BSCMenuConfig,
+        on: {
+            press: function (event) {
+                if (event.isLeaf) mVRootMenu.activeTab = -1;
+                var menuItem = event.menuItem;
+                console.log(menuItem.text)
+            }
+        }
+    });
+    var mainTabView = _({
+        tag: 'tabview',
+        class: 'bsc-main-tab',
+        child: ['checkbox.html', 'timeinput.html', 'trackbar.html', 'cardtable.html'].map((name) => ({
+            tag: 'tabframe',
+            attr: {
+                name: name
+            },
+            child: {
+                tag: 'iframe',
+                style: {
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    backgroundColor: 'white'
+                },
+                props: {
+                    src: name
+                }
+            }
+        }))
+    });
+    var pageElt = _({
+        class: 'bsc-main',
+        child: [
+            {
+                class: 'bsc-main-menu-ctn',
+                child: mVRootMenu,
+
+            },
+            {
+                class: 'bsc-main-body',
+                child: mainTabView
+            },
+            {
+                tag: 'attachhook',
+                props: {
+                    requestUpdateSize: function () {
+                        var menuBound = mVRootMenu.getBoundingClientRect();
+                        pageElt.addStyle('--main-menu-width', menuBound.width + 'px')
+                    }
+                },
+                on: {
+                    attached: function () {
+                        absol.Dom.addToResizeSystem(this);
+                        this.requestUpdateSize();
+                    }
+                }
+            }
+        ],
+    }).addTo(document.body);
+
+    var supportWidget = _({
+        tag: 'onscreenwidget',
+        id: 'chat-widget',
+        child: {
+            tag: 'img',
+            class: 'bsc-widget-support-img',
+            props: {
+                src: 'https://storage.moqups.com/repo/SdL0ybkYC5/4jHprQqLk6.png'
+            }
+        },
+        props:{
+            config:{
+                cx: 95, cy: 95
+            }
+        },
+        on: {
+            click: function () {
+                console.log('click');
+            }
+        }
+    }).addTo(document.body);
+
+</script>
+</body>
+</html>

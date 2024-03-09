@@ -1,0 +1,82 @@
+.as-modal {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    z-index: 1001000;
+    white-space: nowrap;
+}
+
+.as-modal.as-hidden {
+    z-index: -1000;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.as-modal.as-center {
+    text-align: center;
+}
+
+
+.as-modal.as-middle::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0;
+}
+
+.as-modal > .as-modal-content {
+    display: inline-block;
+    text-align: initial;
+    white-space: initial;
+}
+
+/*for content*/
+.as-modal.as-middle > .as-modal-content {
+    vertical-align: middle;
+}
+
+.as-loading-cube-modal {
+    background-color: rgba(169, 169, 169, 0.3);
+}
+
+
+.as-loading-cube-modal {
+    z-index: 1000000;
+    background-color: rgba(169, 169, 169, 0.3);
+}
+
+.as-loading-cube-modal > .as-modal-content {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    -webkit-box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    -moz-box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    box-shadow: 2px 2px 9px 0px rgba(20, 20, 20, 1);
+    display: inline-block;
+}
+
+.as-loading-cube-modal > .as-modal-content > svg {
+    width: 5em;
+    height: 5em;
+}
+
+
+.am-modal {
+    z-index: 100005;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: var(--modal-margin-top);
+}
+
+.am-modal>div{
+    text-align: initial;
+    display: inline-block;
+}

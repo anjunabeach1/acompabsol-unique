@@ -1,0 +1,110 @@
+:root {
+    --multi-select-menu-max-height: 90px;
+}
+
+.as-multi-select-menu {
+    --list-min-width: 3em;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    min-height: var(--select-box-min-height);
+    min-width: var(--list-min-width);
+    border: solid 1px #d6d6d6;
+    border-radius: 3px;
+    box-sizing: border-box;
+    outline: none;
+    background-color: white;
+    padding-right: 45px;
+    white-space: normal;
+    --as-width-limit: 100vw;
+    max-width: var(--as-width-limit);
+}
+
+.as-multi-select-menu .absol-selectbox-item-text span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(var(--as-width-limit) - 85px);
+}
+
+.as-multi-select-menu-item-ctn {
+    display: block;
+    max-height: var(--multi-select-menu-max-height);
+    overflow-y: auto;
+}
+
+
+.as-multi-select-menu-toggle-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    pointer-events: none;
+    border: none;
+    background-color: transparent;
+}
+
+.as-multi-select-menu-toggle-btn svg.dropdown {
+    width: 10px;
+    height: 10px;
+    fill: #929292;
+}
+
+.as-multi-select-menu:hover svg.dropdown {
+    fill: black;
+}
+
+.as-multi-select-menu.as-disable-click-to-focus .as-multi-select-menu-toggle-btn {
+    display: none;
+}
+
+.as-multi-select-menu .absol-selectbox-item {
+    margin: calc((var(--select-box-min-height) - 2px - var(--select-box-item-height)) / 2) 2px;
+}
+
+
+.as-multi-select-menu.as-item-focusable .absol-selectbox-item.as-active {
+    background-color: var(--select-box-focus-item-color);
+}
+
+.as-multi-select-menu.as-disabled {
+    background-color: #ebebe4;
+}
+
+.as-multi-select-menu-toggle-btn {
+
+}
+
+.as-multi-select-menu.as-disabled .as-multi-select-menu-item-ctn * {
+    pointer-events: none;
+}
+
+
+.as-multi-select-menu.as-multi-check-tree-leaf-menu {
+    min-width: calc(var(--select-list-estimate-width) + 14px);
+}
+
+
+.as-multi-select-menu.as-read-only .absol-selectbox-item-close,
+.as-multi-select-menu.as-read-only .as-multi-select-menu-toggle-btn,
+.as-multi-select-menu.as-disabled .absol-selectbox-item-close,
+.as-multi-select-menu.as-disabled .as-multi-select-menu-toggle-btn {
+    display: none;
+}
+
+.as-multi-select-menu.as-read-only .absol-selectbox-item-text {
+    padding-right: 10px;
+}
+
+.as-multi-select-menu.as-read-only {
+    padding-right: 0;
+}
+
+.as-multi-select-menu.as-border-none {
+    border: none;
+}
+
+.as-multi-select-menu.as-border-none .as-multi-select-menu-item-ctn {
+    max-height: unset;
+    overflow-y: auto;
+}

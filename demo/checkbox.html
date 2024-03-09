@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, user-scale=no">
+
+    <title>Checkbox</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+
+    <style>
+
+        body {
+            --blue: #122246;
+            --indigo: #6610f2;
+            --purple: #6f42c1;
+            --pink: #e83e8c;
+            --red: #dc3545;
+            --orange: #fd7e14;
+            --yellow: #ffc107;
+            --green: #28a745;
+            --teal: #20c997;
+            --cyan: #17a2b8;
+            --white: #fff;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+            --primary: #007bff;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 41.1429rem;
+            --breakpoint-md: 54.8571rem;
+            --breakpoint-lg: 70.8571rem;
+            --breakpoint-xl: 85.7143rem;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --border-color: #253863;
+            --color-body: #eef5f9;
+            --color-input-color: #d6d6d6;
+            --control-height: 30px;
+        }
+        .checkbox-row >*{
+            margin-right: 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Checkbox</h1>
+    <div class="checkbox-row">
+        <span>span </span><label>label </label>
+    </div>
+    <script class="viewable">
+        var mRadioRow = absol.$('.checkbox-row');
+        absol._('checkbox[checked="true"]').addTo(mRadioRow).text = "Chon 1";
+        absol._('checkbox[checked="false"]').addTo(mRadioRow);
+        absol._('checkbox.right[checked="true"][disabled="true"]').addTo(mRadioRow).text = "Chon 2";
+        absol._('checkboxbutton[checked="true"]').addTo(mRadioRow);
+        absol._('checkboxbutton[checked="false"]').addTo(mRadioRow);
+        absol._('checkboxbutton[checked="true"]').addTo(mRadioRow);
+
+        absol._({
+            tag:'checkbox',
+            class:'right',
+            props:{
+                text:'abc'
+            }
+        }).addTo(mRadioRow)
+    </script>
+    <script class="viewable">
+        absol.require('checkboxbutton').initAfterLoad();
+    </script>
+
+    <div>
+        <label for="c1">Chọn 1</label><checkboxinput type="checkbox" name="b" class="absol-checkbox" id="c1"> </checkboxinput>
+        <label for="c2">Chọn 2</label><checkboxinput type="checkbox" name="b" class="absol-checkbox" id="c2"> </checkboxinput>
+        <label for="c3">Chọn 3</label><checkboxinput type="checkbox" name="b" class="absol-checkbox" checked id="c3" > </checkboxinput>
+        <table>
+            <tr>
+                <td>Chọn 4</td><td><input type="checkbox" name="b" class="absol-checkbox" id="c4" /></td>
+            </tr>
+            <tr><td>Chọn 5</td><td><input type="checkbox" name="b" class="absol-checkbox" id="c5" /></td> </tr>
+            <tr><td>Chọn 6</td><td><input type="checkbox" name="b" class="absol-checkbox" id="c6" /></td> </tr>
+        </table>
+    </div>
+
+    <h1>Switch</h1>
+    <div class="switch-row"></div>
+    <br>
+    <div class="switch-row-ext"></div>
+    <script class="viewable">
+        //Note: switch can not assign text
+        var mSwitchRow = absol.$('.switch-row');
+        absol._('switch[checked="true"]').addTo(mSwitchRow);
+        absol._('switch[checked="false"]').addTo(mSwitchRow);
+        absol._('switch[checked="true"].square').addTo(mSwitchRow);
+        absol._('switch[checked="false"].square').addTo(mSwitchRow);
+        absol._('switch[checked="true"][disabled="true"]').addTo(mSwitchRow);
+        absol._('switch[checked="false"][disabled="true"]').addTo(mSwitchRow);
+        absol._('switch[checked="true"][disabled="true"].square').addTo(mSwitchRow);
+        absol._('switch[checked="false"][disabled="true"].square').addTo(mSwitchRow);
+
+        var mmSwitchRowExt = absol.$('.switch-row-ext');
+        mmSwitchRowExt
+            .addChild(absol._({
+                tag: 'label',
+                style: {
+                    'vertical-align': 'middle',
+                    'margin-right': '1em'
+                },
+                child: { text: 'My Switch' }
+            }))
+        var valueText = absol._({
+            tag: 'span',
+            child: { text: 'FALSE' },
+            style: {
+                'vertical-align': 'middle',
+                'margin-left': '1em'
+            }
+        });
+        var mCheckbox = absol._({
+            tag: 'switch',
+            style: {
+                'font-size': '20px'
+            },
+            props: {
+                checked: false
+            },
+            on: {
+                change: function () {
+                    if (this.checked) {
+                        valueText.innerHTML = 'TRUE';
+                    }
+                    else {
+                        valueText.innerHTML = 'FALSE';
+                    }
+                }
+            }
+        }).addTo(mmSwitchRowExt);
+        valueText.addTo(mmSwitchRowExt);
+    </script>
+
+    <h2>Config Height</h2>
+    <div id="demo-config"></div>
+    <script class="viewable">
+        var demoCofigDiv = absol.$('#demo-config');
+        var configHeigSwitch = absol._({
+                tag: 'switch',
+                style: {
+                    'font-size': parseFloat(absol.$(document.body).getComputedStyleValue('--control-height').replace('px', ''))/1.2+'px',
+                    margin:'0'// overide bootstrap style
+                },
+                props: {
+                    checked: false
+                },
+                on: {
+                    change: function () {
+                        if (this.checked) {
+                            valueText.innerHTML = '🥰';
+                        }
+                        else {
+                            valueText.innerHTML = 'FALSE';
+                        }
+                    }
+                }
+            }).addTo(demoCofigDiv);
+    </script>
+    <script src="https://absol.cf/absol/demo/autohightlighting.js?"></script>
+</body>
+
+</html>

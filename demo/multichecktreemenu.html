@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, user-scale=no">
+    <title>CheckTreeBox</title>
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<style>
+    .break-page {
+        margin: 20px;
+        display: block;
+        height: 3px;
+        box-sizing: border-box;
+        border-top: solid 1px #65676d;
+        border-bottom: solid 1px #65676d;
+    }
+
+    body > a {
+        padding: 5px;
+        display: inline-block;
+    }
+</style>
+<script>
+    absol.remoteNodeRequireAsync('./multichecktreemenu.js');
+</script>
+<!--<script src="https://absol.cf/absol/demo/autohightlighting.js"></script>-->
+
+</body>
+</html>

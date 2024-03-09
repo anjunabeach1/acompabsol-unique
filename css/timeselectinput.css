@@ -1,0 +1,36 @@
+.as-time-select-input {
+    display: inline-block;
+    position: relative;
+    height: calc(2em + 2px);
+    border: solid 1px #d6d6d6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1rem;
+    outline: none;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    padding-right: 30px;
+    --list-min-width: unset;
+    width: calc(var(--list-min-width) + 2em + 2px);
+    min-width: calc(var(--list-min-width) + 2em + 2px);
+}
+
+.as-time-select-input.as-disabled {
+    pointer-events: none;
+    background-color: #ebebe4;
+}
+
+.as-time-select-input-text {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 0;
+    background-color: transparent;
+    font-size: inherit;
+}

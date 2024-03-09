@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TimePicker</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+    <style>
+        .dark.bg {
+            background-color: rgba(30, 30, 32, 1);
+            /* background-color: white; */
+            color: white;
+
+        }
+
+        .bg {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: solid 1px rgb(30, 30, 32);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TimePicker</h1>
+
+    <div class="standar">
+    </div>
+
+    <script class="viewable">
+        var _ = absol._;
+        var $ = absol.$;
+        var scroller = $('.standar');
+        _({
+            tag: 'timepicker',
+            props: {
+               dayOffset: new Date()
+            },
+            on:{
+                finish: function(){
+                    alert(this.hour+":"+ this.minute);
+                }
+            }
+        }).addTo(scroller);
+    </script>
+
+
+    <script src="https://absol.cf/absol/demo/autohightlighting.js"></script>
+
+</body>
+
+</html>

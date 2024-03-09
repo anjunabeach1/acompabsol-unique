@@ -1,0 +1,43 @@
+.as-page-indicator {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.as-page-indicator::before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.as-page-indicator-item {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: inherit;
+    width: 1.5em;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+
+
+.as-page-indicator-item::before {
+    content: "";
+    display: inline-block;
+    height: 0.5em;
+    width: 0.5em;
+    transition: width 0.25s, height 0.25s, color 0.25s;
+    border-radius: 50%;
+    background-color: rgb(196, 196, 196);
+    font-size: inherit;
+    vertical-align: middle;
+}
+
+.as-page-indicator-item.as-active::before{
+    width: 0.75em;
+    height: 0.75em;
+    background-color: var(--variant-color-primary);
+
+}

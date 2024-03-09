@@ -1,0 +1,157 @@
+.as-date-time-input {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    height: calc(2em + 2px);
+    width: calc(14em + 2px);
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+}
+
+.as-date-time-input.as-disabled {
+    color: var(--as-disabled-text-color);
+    pointer-events: none;
+}
+
+
+.as-date-time-input input {
+    font-size: inherit;
+    outline: none;
+    width: calc(100% - 2em - 1px);
+    height: 100%;
+    border: none;
+    display: block;
+    padding: 0 0 0 var(--as-input-horizontal-padding);
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-user-drag: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+.as-date-time-input.as-disabled input {
+    background-color: var(--as-disabled-background-color);
+}
+
+.as-date-time-input-icon-btn {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid #ddd;
+    position: absolute;
+    right: 0;
+    width: calc(2em + 1px);
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(169, 169, 169, 0.1);
+    cursor: pointer;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.as-date-time-input-icon-btn > span {
+    font-size: calc(16em / 14);
+}
+
+
+.as-date-time-input-icon-btn:hover {
+    background-color: rgba(169, 169, 169, 0.25);
+}
+
+.as-date-time-input-icon-btn:active {
+    background-color: rgba(169, 169, 169, 0.5);
+}
+
+
+.as-date-time-input-icon-btn.as-disabled {
+    color: rgb(102, 102, 102);
+    pointer-events: none;
+}
+
+.as-date-time-input-follower {
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.as-date-time-input-date-picker {
+    border: none;
+    box-shadow: none;
+}
+
+.as-date-time-input-picker-header {
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+
+.as-date-time-input-picker-btn {
+    height: 20px;
+    min-width: 25px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-size: inherit;
+    border: 1px solid rgb(47, 82, 143);
+    background-color: rgb(68, 144, 196);
+    color: white;
+    border-radius: 0;
+}
+
+.as-date-time-input-picker-btn:active {
+    background-color: rgb(50, 122, 169);
+}
+
+
+.as-chrome-time-picker.as-date-time-input-time-picker {
+    height: 11.8em;
+    box-sizing: border-box;
+}
+
+.as-date-time-input-picker-ctn {
+    white-space: nowrap;
+}
+
+.as-date-time-input-picker-ctn > div {
+    display: inline-block;
+    white-space: initial;
+    vertical-align: top;
+}
+
+.as-date-time-input-follower > div {
+    border-color: white;
+}
+
+.as-date-time-input:hover .as-time-input-clear-btn {
+    visibility: visible;
+}
+
+.as-date-time-input.as-must-not-null .as-time-input-clear-btn,
+.as-date-time-input.as-read-only .as-time-input-clear-btn {
+    display: none;
+}
+
+
+.as-date-time-input.as-read-only .as-date-time-input-icon-btn {
+    pointer-events: none;
+}
+
+
+.as-date-time-input.as-border-none {
+    border: none;
+}
+
+
+.as-date-time-input.as-border-none .as-date-time-input-icon-btn {
+    display: none;
+}
+
+.as-date-time-input.as-border-none input {
+    width: 100%;
+    padding-left: 0;
+}

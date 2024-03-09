@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, user-scale=no">
+
+    <meta charset="UTF-8">
+    <title>CKPlaceholder</title>
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+    <script src="https://absol.cf/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-size: 14px;
+    }
+
+    #ck {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    #ck::after {
+        content: "";
+        display: block;
+        height: 1800px;
+    }
+</style>
+<div id="ck"></div>
+<div id="data_sample" style="display: none">
+    <p>Tôi năm nay <strong><span class="as-ck-widget-expression"><span class="as-ck-widget-expression">{{ old }}</span></span></strong></p>
+
+    <p>Bảng quy đổi kích thước ren</p>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <td rowspan="2">
+                <p><strong>Ống kim loại</strong></p>
+
+                <p><strong>(Đường kính trong)</strong></p>
+            </td>
+            <td colspan="2">
+                <p><strong>Ống nhựa</strong></p>
+
+                <p><strong>(Đường kính danh nghĩa)</strong></p>
+            </td>
+            <td rowspan="2">
+                <p><strong>Kích thước ren danh nghĩa</strong></p>
+
+                <p><strong>(D - Inch)</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>PVC</strong></p>
+            </td>
+            <td>
+                <p><strong>HDPE- PP-R</strong></p>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <p>15</p>
+            </td>
+            <td>
+                <p>21</p>
+            </td>
+            <td>
+                <p>20</p>
+            </td>
+            <td>
+                <p>1/2"</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>20</p>
+            </td>
+            <td>
+                <p>27</p>
+            </td>
+            <td>
+                <p>25</p>
+            </td>
+            <td>
+                <p>3/4”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>26</p>
+            </td>
+            <td>
+                <p>34</p>
+            </td>
+            <td>
+                <p>32</p>
+            </td>
+            <td>
+                <p>1”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>33</p>
+            </td>
+            <td>
+                <p>42</p>
+            </td>
+            <td>
+                <p>40</p>
+            </td>
+            <td>
+                <p>11/4”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>40</p>
+            </td>
+            <td>
+                <p>48 (49)</p>
+            </td>
+            <td>
+                <p>50</p>
+            </td>
+            <td>
+                <p>11/2”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>50</p>
+            </td>
+            <td>
+                <p>60</p>
+            </td>
+            <td>
+                <p>63</p>
+            </td>
+            <td>
+                <p>2”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>65</p>
+            </td>
+            <td>
+                <p>75</p>
+            </td>
+            <td>
+                <p>75</p>
+            </td>
+            <td>
+                <p>21/2”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>80</p>
+            </td>
+            <td>
+                <p>90</p>
+            </td>
+            <td>
+                <p>90</p>
+            </td>
+            <td>
+                <p>3”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>100</p>
+            </td>
+            <td>
+                <p>110 (114)</p>
+            </td>
+            <td>
+                <p>110</p>
+            </td>
+            <td>
+                <p>4”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>125</p>
+            </td>
+            <td>
+                <p>140</p>
+            </td>
+            <td>
+                <p>140</p>
+            </td>
+            <td>
+                <p>5”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>150</p>
+            </td>
+            <td>
+                <p>160 (168)</p>
+            </td>
+            <td>
+                <p>160</p>
+            </td>
+            <td>
+                <p>6”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>175 (Ống thép đen)</p>
+            </td>
+            <td>
+                <p>--------</p>
+            </td>
+            <td>
+                <p>---------</p>
+            </td>
+            <td>
+                <p>7”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>200</p>
+            </td>
+            <td>
+                <p>225 (220)</p>
+            </td>
+            <td>
+                <p>225</p>
+            </td>
+            <td>
+                <p>8”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>250</p>
+            </td>
+            <td>
+                <p>280</p>
+            </td>
+            <td>
+                <p>280</p>
+            </td>
+            <td>
+                <p>10”</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>315</p>
+            </td>
+            <td>
+                <p>355</p>
+            </td>
+            <td>
+                <p>355</p>
+            </td>
+            <td>
+                <p>12”</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <h1>Áp suất danh nghĩa</h1>
+
+    <p>Áp suất danh nghĩa - PN (Nominal Pressure) là áp suất tối đa (tính bằng bar) mà một hệ thống ống có thể chịu được khi sử dụng liên tục ở nhiệt độ 20oC dưới các điều kiện phục vụ đã được quy định và không có đột biến về áp suất.</p>
+
+    <p>1 bar = 10 mét cột nước</p>
+
+    <h1>Áp suất làm việc</h1>
+
+    <p>Áp suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.</p>
+
+    <p>Ví dụ:</p>
+
+    <ul>
+        <li>Ống có áp suất làm việc 10 bar kết nối với phụ tùng có áp suất 12.5 bar thì áp suất hệ thống là 10 bar.&nbsp;suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.suất làm việc hệ thống là áp suất danh nghĩa tại điểm yếu nhất của hệ thống.</li>
+        <li>Ống có áp suất làm việc 12.5 bar kết nối với phụ tùng có áp suất 10 bar thì áp suất hệ thống là 10 bar.</li>
+    </ul>
+
+</div>
+<script>
+    var ck = absol.$('#ck');
+
+    function render(o) {
+        return absol._(o).addTo(ck);
+    }
+</script>
+
+<script>
+
+    function user_chose_variable(currentExpression) {
+        var $ = absol.$;
+        var _ = absol._;
+        return new Promise(function (resolve) {
+            var input = _({
+                tag: 'selectmenu',
+                props: {
+                    items: [
+                        { text: "Tên", value: 'first_name' },
+                        { text: "Họ", value: 'last_name' },
+                        { text: 'Tuổi', value: 'old' },
+                        { text: 'Địa chỉ', value: 'address' }
+                    ]
+                }
+            });
+            input.value = currentExpression || '';
+            var dialog = _({
+                extendEvent: ['action'],
+                class: 'as-message-dialog',
+                child: [
+                    {
+                        class: 'as-message-dialog-header',
+                        child: {
+                            tag: 'span',
+                            class: 'as-message-dialog-title',
+                            child: { text: '' }
+                        }
+                    },
+                    {
+                        class: 'as-message-dialog-body',
+                        child: [
+                            '<label>Tên biến: </label>',
+                            input
+                        ]
+                    },
+                    {
+                        class: 'as-message-dialog-footer',
+                        child: [
+                            {
+                                tag: 'flexiconbutton',
+                                class: ['as-message-dialog-no-btn', 'secondary'],
+                                props: {
+                                    text: 'Cancel'
+                                },
+                                on: {
+                                    click: function () {
+                                        modal.remove();
+                                        resolve(null);
+                                    }
+                                }
+                            },
+                            {
+                                tag: 'flexiconbutton',
+                                class: ['as-message-dialog-yes-btn', 'primary'],
+                                props: {
+                                    text: 'ok'
+                                },
+                                on: {
+                                    click: function () {
+                                        modal.remove();
+                                        if (input.value.trim().length > 0)
+                                            resolve({ value: input.value.trim() });
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            });
+
+            var modal = _({ tag: 'modal', child: dialog }).addTo(document.body);
+        })
+            ;
+    }
+
+    render('<h2>CK Inline Short Text(Variable)</h2>');
+
+    var shortExpressionInput = absol._({
+        tag: 'ckinlineshorttext',
+        props: {
+            extensions: ['variable'],
+            variables: {
+                first_name: { text: "Tên" },
+                last_name: { text: "Họ" },
+                old: { text: 'Tuổi' },
+                address: { text: 'Địa chỉ' }
+            },
+            removeToolbar: true
+        },
+        on: {
+            focus: function () {
+                // lastFocusHolder = this;
+                // bt.disabled = false;
+            },
+            change: function () {
+                absol.require('snackbar').show(this.data);
+            },
+            command: function (event) {
+                var ck = this;//ckplaceholder
+                switch (event.command) {
+                    case 'insert_variable':
+                        user_chose_variable(this.getSelectedVariable()).then(function (result) {
+                            if (result) {
+                                ck.insertVariable(result.value);//expression
+                            }
+                        });
+                        break;
+                }
+            }
+        }
+    });
+
+    shortExpressionInput.data = 'last_name + " "+ first_name + ", năm nay " + old + "tuổi"';
+
+
+    var te = render('');
+
+
+    function user_chose_expression(currentExpression) {
+        var $ = absol.$;
+        var _ = absol._;
+        return new Promise(function (resolve) {
+            var input = _('input');
+            input.value = currentExpression || '';
+            var dialog = _({
+                extendEvent: ['action'],
+                class: 'as-message-dialog',
+                child: [
+                    {
+                        class: 'as-message-dialog-header',
+                        child: {
+                            tag: 'span',
+                            class: 'as-message-dialog-title',
+                            child: { text: '' }
+                        }
+                    },
+                    {
+                        class: 'as-message-dialog-body',
+                        child: [
+                            '<label>Biểu thức: </label>',
+                            input
+                        ]
+                    },
+                    {
+                        class: 'as-message-dialog-footer',
+                        child: [
+                            {
+                                tag: 'flexiconbutton',
+                                class: ['as-message-dialog-no-btn', 'secondary'],
+                                props: {
+                                    text: 'Cancel'
+                                },
+                                on: {
+                                    click: function () {
+                                        modal.remove();
+                                        resolve(null);
+                                    }
+                                }
+                            },
+                            {
+                                tag: 'flexiconbutton',
+                                class: ['as-message-dialog-yes-btn', 'primary'],
+                                props: {
+                                    text: 'ok'
+                                },
+                                on: {
+                                    click: function () {
+                                        modal.remove();
+                                        if (input.value.trim().length > 0)
+                                            resolve({ value: input.value.trim() });
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            });
+
+            var modal = _({ tag: 'modal', child: dialog }).addTo(document.body);
+        });
+    }
+
+    var lastFocusHolder = null;
+    var bt = render({
+        tag: 'flexiconbutton',
+        style: { height: '30px' },
+        props: {
+            text: 'Insert Expression',
+            icon: 'span.mdi.mdi-code-json',
+            disabled: true
+        },
+        on: {
+            click: function () {
+                var current = lastFocusHolder;
+                var selectedExpression = current.getSelectedExpression();
+
+                user_chose_expression(selectedExpression).then(function (result) {
+                    if (result) {
+                        current.insertExpression(result.value);//expression
+                    }
+                });
+            }
+        }
+    });
+
+    render('<h2>CK Inline Short Text(Expression)</h2>');
+    var t = render('div');
+    var shortInput = absol._({
+        tag: 'ckinlineshorttext',
+        props: {
+            extensions: ['expression']
+        },
+        on: {
+            focus: function () {
+                lastFocusHolder = this;
+                bt.disabled = false;
+            },
+            change: function () {
+                textInput.value = this.data;
+            },
+            command: function (event) {
+                var ck = this;//ckplaceholder
+                switch (event.command) {
+                    case 'insert_expression':
+                        user_chose_expression(this.getSelectedExpression()).then(function (result) {
+                            if (result) {
+                                ck.insertExpression(result.value);//expression
+                            }
+                        });
+                        break;
+                }
+            }
+        }
+    });
+
+    var textInput = render({
+        tag: 'input',
+        style: {
+            width: '100%',
+            boxSizing: 'border-box',
+            'margin-top': '10px'
+        }
+    });
+
+    shortInput.data = 'Tôi là {{ my_name}}, năm nay tôi {{ year_old }}';
+
+    setTimeout(function () {
+        //don't care it, to prevent ckeditor trigger after html loaded
+        te.selfReplace(shortExpressionInput);
+        t.selfReplace(shortInput);
+    }, 100)
+
+    var myInfo = {
+        name: "Phạm Hùng Quốc",
+    };
+
+
+    render('<h2>CK Placeholder</h2>');
+
+    var host = {};
+    var ckPlaceHolderElt = absol._({
+        tag: 'ckplaceholder',
+        props: {
+            config: {
+                toolbar:'ADVANCED'
+            },//some config of CKEditor
+            extensions: ['expression'],
+            stickyToolbar: true
+        },
+        on: {
+            focus: function () {
+                lastFocusHolder = this;
+                bt.disabled = false;
+            },
+            editorcreated: function () {
+                var editor = this.editor;
+                host.ckEditor = editor;
+
+            },
+            editorready: function () {
+
+                console.log("Editor đã sẵn sàng");
+            },
+            change: function () {
+                preview.innerHTML = this.data;
+            },
+            command: function (event) {
+                var ck = this;//ckplaceholder
+                switch (event.command) {
+                    case 'insert_expression':
+                        user_chose_expression(ck.getSelectedExpression()).then(function (result) {
+                            if (result) {
+                                ck.insertExpression(result.value);//expression
+                            }
+                        })
+                        break;
+                }
+            }
+        }
+    });
+
+
+    ckPlaceHolderElt.data = absol.$('#data_sample').innerHTML;
+    ck.appendChild(ckPlaceHolderElt);
+    var preview = absol._({
+        class: 'cke_contents_ltr'
+    });
+    absol._({
+        tag:'flexiconbutton',
+        props:{
+            text:'Save PDF'
+        },
+        on: {
+            click: function (){
+                absol.printer.downloadAsPDF(preview, 'test.pdf');
+            }
+        }
+    }).addTo(ck);
+
+    ck.appendChild(preview);
+
+
+
+
+</script>
+
+<script>
+
+    // CKEDITOR.stylesSet.add( 'default', [
+    //     // Block Styles
+    //     { name: 'Normal',       element: 'p',      styles: { } },
+    //     { name: 'Note',       element: 'p',      styles: { 'color': 'Blue', padding:'5px', "background-color":'rgba(255, 100, 100, 0.5)', 'border-radius': '3px' } }
+    // ] );
+    //
+    // CKEDITOR.config.format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address;div;blockquote';
+    // CKEDITOR.config.format_blockquote = { element: 'blockquote', attributes: { 'class': 'editorCode' } };
+    //
+    //
+    // CKEDITOR.addCss( '.cke_editable .note-background { background-color: #feddd6; padding: 15px }' );
+    // CKEDITOR.plugins.add( 'notehighlight', {
+    //     icons: 'notehighlight',
+    //     init: function( editor ) {
+    //         editor.addCommand( 'formatNoteHighlight', {
+    //             exec: function( editor ) {
+    //                 var style = new CKEDITOR.style( { element: 'p', attributes: { 'class': 'note-background' } } );
+    //
+    //                 if (style.checkActive( editor.elementPath(), editor )) {
+    //                     editor.removeStyle( style );
+    //                 } else {
+    //                     editor.applyStyle( style );
+    //                 }
+    //
+    //             }
+    //         });
+    //         editor.ui.addButton( 'NoteHighlight', {
+    //             label: 'Highlight Note',
+    //             command: 'formatNoteHighlight',
+    //             toolbar: 'document'
+    //         });
+    //     }
+    // });
+
+</script>
+
+</body>
+</html>

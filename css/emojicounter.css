@@ -1,0 +1,51 @@
+.as-emoji-counter {
+    display: inline-block;
+    vertical-align: middle;
+    color: rgb(38, 141, 145);
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    height:  calc(2rem + 2px);
+    text-align: center;
+    min-height:  calc(2rem + 2px);
+    padding: 0 8px;
+    border-radius: calc(1rem + 1px);
+    font-size: 1rem;
+    background-color: white;
+    outline: none;
+}
+
+.as-emoji-counter::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.as-emoji-counter-sprite {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.285em;
+    height:  1.285em;
+}
+
+.as-emoji-counter-num {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    margin-left: 0.2em;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    cursor: default;
+}
+
+.as-emoji-counter-num:empty {
+    display: none;
+}
+
+.as-emoji-counter.as-zero {
+    background-color: rgba(220, 220, 220);
+}
+
+.as-emoji-counter + .as-emoji-counter {
+    margin-left: 0.3em;
+}

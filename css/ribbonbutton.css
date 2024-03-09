@@ -1,0 +1,114 @@
+.as-ribbon-button {
+    display: inline-block;
+    vertical-align: middle;
+    height: calc(2em + 2);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border-radius: 0;
+    outline: none;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 1px 1px 1px 1px;
+    background-color: transparent;
+}
+
+.as-ribbon-button div,
+.as-ribbon-button span {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+.as-ribbon-button:hover {
+    background-color: rgba(169, 168, 169, 0.15);
+}
+
+.as-ribbon-button:active {
+    background-color: rgba(169, 168, 169, 0.3);
+}
+
+
+.as-ribbon-split-button:active:hover .as-ribbon-split-button-content > button,
+.as-ribbon-split-button:active .as-ribbon-split-button-content > button {
+    border-color: rgba(169, 168, 169, 0.3);
+}
+
+.as-ribbon-split-button:hover .as-ribbon-split-button-content > button {
+    border-color: rgba(169, 168, 169, 0.15);
+}
+
+.as-ribbon-button-icon {
+    font-size: 1.2em;
+    margin-right: 0.5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+img.as-ribbon-button-icon,
+svg.as-ribbon-button-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.as-ribbon-button-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: inherit;
+}
+
+.as-ribbon-button-text::before {
+    content: attr(data-text);
+}
+
+.as-ribbon-button.as-no-dropdown .mdi.mdi-chevron-down {
+    display: none;
+}
+
+.as-ribbon-button.as-big {
+    width: 5em;
+    height: auto;
+    white-space: nowrap;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.as-ribbon-button.as-big span.as-ribbon-button-icon {
+    font-size: 2em;
+}
+
+.as-ribbon-button.as-big .as-ribbon-button-text {
+    white-space: normal;
+    max-width: calc(100% - 1em);
+}
+
+.as-ribbon-button.as-big svg.as-ribbon-button-icon,
+.as-ribbon-button.as-big img.as-ribbon-button-icon {
+    height: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.as-ribbon-button.as-appearance-button {
+    height: calc(2rem + 2px);
+    box-sizing: border-box;
+    border: solid 1px #bfbfbf;
+    background-color: #ebebeb;
+    border-radius: 0.2em;
+    outline: none;
+    font-size: 1rem;
+}
+
+
+.as-ribbon-button.as-appearance-button:hover {
+    background-color: #D3D3D3;
+}
+
+.as-ribbon-button.as-appearance-button:active,
+.as-ribbon-button.as-appearance-button.as-quick-menu-attached {
+    -webkit-box-shadow: inset 0 0.2em 0.25em rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 0.2em 0.25em rgba(0, 0, 0, 0.125);
+}

@@ -1,0 +1,192 @@
+.as-tree-chart * {
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+}
+
+.as-tree-chart {
+    --root-background-color: #ED7D31;
+    --root-text-color: white;
+
+    --vert-node-background-color: #4472C4;
+    --vert-node-text-color: white;
+
+    --horz-node-background-color: #A9D18E;
+    --horz-node-text-color: black;
+
+    --leaf-node-background-color: #F8CBAD;
+    --leaf-node-text-color: black;
+
+
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.as-tree-chart-node {
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    position: relative;
+}
+
+.as-tree-chart-content-ctn {
+    text-align: center;
+    position: relative;
+}
+
+.as-tree-chart-node[data-level="0"] >.as-tree-chart-content-ctn> .as-tree-chart-content {
+    background-color: var(--root-background-color);
+    color: var(--root-text-color);
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-child-ctn .as-tree-chart-content{
+    background-color: var(--horz-node-background-color);
+    color: var(--horz-node-text-color);
+}
+
+.as-tree-chart-node.as-is-leaf >.as-tree-chart-content-ctn> .as-tree-chart-content {
+    background-color: var(--leaf-node-background-color);
+    color: var(--leaf-node-text-color);
+}
+
+
+
+.as-tree-chart-content {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid black;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    background-color: var(--vert-node-background-color);
+    color: var(--vert-node-text-color);
+}
+
+.as-tree-chart-icon,
+.as-tree-chart-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.as-tree-chart-icon {
+    font-size: 1.25em;
+    padding-right: 0.25em;
+}
+
+.as-tree-chart-node.as-has-children > .as-tree-chart-content-ctn {
+    padding-bottom: 10px;
+}
+
+.as-tree-chart-node.as-has-children > .as-tree-chart-content-ctn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 10px;
+    border-left: 1px solid black;
+}
+
+.as-tree-chart-child-ctn {
+    white-space: nowrap;
+    padding-top: 10px;
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.as-tree-chart-node:not(.as-horizontal) > .as-tree-chart-child-ctn > .as-tree-chart-node:not(:last-child) {
+    margin-right: 10px;
+}
+
+.as-tree-chart-child-ctn > .as-tree-chart-node:not(:first-child):not(:last-child)::before {
+    content: "";
+    border-top: 1px solid black;
+    position: absolute;
+    left: 0;
+    right: -10px;
+    top: -10px;
+}
+
+.as-tree-chart-child-ctn > .as-tree-chart-node:first-child:not(:last-child)::before {
+    content: "";
+    border-top: 1px solid black;
+    position: absolute;
+    left: 50%;
+    right: -10px;
+    top: -10px;
+}
+
+.as-tree-chart-child-ctn > .as-tree-chart-node > .as-tree-chart-content-ctn .as-tree-chart-content::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    height: 10px;
+    top: -11px;
+    border-left: 1px solid black;
+}
+
+.as-tree-chart-child-ctn > .as-tree-chart-node:not(:first-child):last-child > .as-tree-chart-content-ctn::before {
+    content: "";
+    border-top: 1px solid black;
+    position: absolute;
+    left: 0;
+    width: calc(50% + 1px);
+    top: -10px;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-child-ctn .as-tree-chart-content {
+    text-align: left;
+}
+
+.as-tree-chart-node.as-horizontal > .as-tree-chart-content-ctn .as-tree-chart-content {
+    display: block;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-node {
+    display: block;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-child-ctn {
+    padding-left: 20px;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-child-ctn .as-tree-chart-content-ctn {
+    text-align: left;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-content-ctn::after {
+    left: 10px;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-node:not(:last-child)::before {
+    right: unset;
+    bottom: 0;
+    border-top: none;
+    border-left: 1px solid black;
+    left: -10px;
+    height: unset;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-child-ctn > .as-tree-chart-node > .as-tree-chart-content-ctn .as-tree-chart-content::before {
+    border-left: none;
+    border-top: 1px solid black;
+    left: -10px;
+    width: 10px;
+    top: 50%;
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-node:last-child > .as-tree-chart-content-ctn::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    height: calc(50% + 10px);
+    border-top: none;
+    border-left: 1px solid black;
+    /*width: unset;*/
+}
+
+.as-tree-chart-node.as-horizontal .as-tree-chart-node.as-has-children:last-child > .as-tree-chart-content-ctn::before {
+    height: calc(50% + 5px);
+    /*width: unset;*/
+}

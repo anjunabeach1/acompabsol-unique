@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Auto Complete Input</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+    <style>
+        label{
+            vertical-align: middle;
+            padding-right: 0.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="radio-row"></div>
+    <script class="viewable">
+        var mRadioRow = absol.$('.radio-row');
+        absol._('radiobutton[checked="true"][name="b"]').addTo(mRadioRow);
+        absol._('radiobutton[checked="false"][name="b"]').addTo(mRadioRow);
+        absol._('radiobutton[name="b"][checked="true"]').addTo(mRadioRow);
+
+        absol._({
+            tag:'radio',
+            props:{
+                text:'abc'
+            }
+        }).addTo(mRadioRow)
+        absol._({
+            tag:'radio',
+            class:'right',
+            style:{
+              color:'red'
+            },
+            props:{
+                text:'abc'
+            }
+        }).addTo(mRadioRow)
+    </script>
+    <script class="viewable">
+        absol.require('radiobutton').initAfterLoad();
+
+    </script>
+
+    <div>
+        <label for="r0">Chọn 1</label><radiobutton  name="b" class="absol-radio" id="r0"></radiobutton>
+        <label for="r1">Chọn 2</label><radiobutton  name="b" class="absol-radio" id="r1"></radiobutton>
+        <label for="r2">Chọn 3</label><radiobutton  name="b" class="absol-radio" checked id="r2"></radiobutton>
+    </div>
+
+    <script src="https://absol.cf/absol/demo/autohightlighting.js"></script>
+    <div id="test_print"></div>
+    <script>
+        var tdiv= absol.$('#test_print');
+        absol._({
+            tag:'flexiconbutton',
+            props:{
+                text:'print'
+            },
+            on: {
+                click: function () {
+                    var n = Date.now();
+                    absol.printer.downloadAsPDF(tdiv, 'abc.pdf').then(()=> console.log(Date.now() - n))
+                }
+            }
+        }).addTo(tdiv);
+        for (var i = 0; i < 0; ++i) {
+            absol._({
+                tag:'radio',
+                props:{
+                    text:' radio_'+i,
+                    checked: i ===1,
+                    name: 'test'
+                }
+            }).addTo(tdiv);
+
+            absol._('br').addTo(tdiv);
+        }
+
+        for (var i = 0; i < 0; ++i) {
+            absol._({
+                tag:'checkbox',
+                props:{
+                    text:' radio_'+i,
+                    checked: i %2,
+                    name: 'test'
+                }
+            }).addTo(tdiv);
+
+            absol._('br').addTo(tdiv);
+        }
+
+        for (var i = 0; i < 1000; ++i) {
+            absol._({
+                tag:'radiobutton',
+                props:{
+                    checked: i ===2,
+                    name: 'test1'
+                }
+            }).addTo(tdiv);
+
+            absol._('br').addTo(tdiv);
+        }
+
+    </script>
+</body>
+
+</html>

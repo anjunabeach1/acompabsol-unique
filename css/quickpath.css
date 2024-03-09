@@ -1,0 +1,47 @@
+.absol-quick-path {
+    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    min-height: 1.5em;
+}
+
+.absol-quick-path button {
+    outline: none;
+    color: rgb(69, 69, 69);
+    height: 1.5em;
+}
+
+.absol-quick-path button:hover {
+    color: black;
+}
+
+.absol-quick-path .toggler-ico path {
+    fill: rgb(104, 104, 104);
+}
+
+.dark .absol-quick-path button {
+    color: rgb(200, 200, 200);
+}
+
+
+.dark .absol-quick-path button:hover {
+    color: white;
+}
+
+.dark .absol-quick-path .toggler-ico path {
+    fill: rgb(169, 169, 169);
+}
+
+
+
+.absol-quick-path-btn:focus span {
+    text-decoration: underline;
+}
+
+/* 
+.absol-quick-path-btn .toggler-ico path {
+    fill: rgb(104, 104, 104);
+} */

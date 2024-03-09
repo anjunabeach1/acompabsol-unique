@@ -1,0 +1,108 @@
+.absol-page-selector{
+    white-space: normal;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    font-size: 1rem;
+}
+
+.absol-page-selector > ul{
+    margin-bottom: 0px;
+    margin-top: 0;
+}
+
+.absol-page-number-buttons{
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.absol-page-number-input > label{
+    font-weight: 100;
+}
+
+.absol-page-number-buttons > li.page-previous, 
+.absol-page-number-buttons > li.page-next,
+.absol-page-number-buttons > li.page-first,
+.absol-page-number-buttons > li.page-last
+{
+    display: inline-block;
+    height:  calc(2em + 2px);;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    transition: all .3s linear;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.absol-page-number-buttons > li.absol-page-number{
+    font-size: inherit;
+    display: inline-block;
+    height: calc(2em + 2px);
+    width: 3em;
+    text-align: center;
+    transition: all .3s linear;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+li.absol-page-number>a{
+    font-size: inherit;
+}
+
+
+.absol-page-number-buttons > li.absol-page-number.active{
+    box-shadow:  0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    background-color: #4285f4;
+    border-radius:2px; 
+    
+}
+
+.absol-page-number-buttons > li.absol-page-number.active > a{
+	color: white;
+    
+}
+
+.absol-page-number-buttons > li> a{
+    line-height: calc(2em + 2px);
+    text-decoration:none;
+    outline: none;
+}
+
+.absol-page-number-buttons > li:not(.active):hover{
+    background-color: #eee;
+
+}
+
+.absol-page-selector .absol-page-number-input{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.absol-page-selector .absol-page-number-input  input[type="text"]{
+    font-size: inherit;
+    width: 3em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    text-align: center;
+    height: 1.8em;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+
+}
+
+.absol-page-link {
+    color: #147af6;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.absol-page-number {
+    color: #147af6;
+    cursor: pointer;
+}
+
+.absol-page-number a::before{
+    content: attr(data-index-text);
+}

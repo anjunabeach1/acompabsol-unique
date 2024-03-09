@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, user-scale=no">
+    <title>ContextMenu</title>
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+    <script>
+        var $ = absol.$;
+        var _ = absol._;
+    </script>
+    <style>
+        .dark.bg {
+            background-color: rgba(30, 30, 32, 1);
+            /* background-color: white; */
+        }
+
+        .bg {
+            padding-left: 5px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: solid 1px rgb(30, 30, 32);
+            overflow: auto;
+        }
+
+        .bg > button {
+            margin: 50px;
+        }
+
+        .hover-blue:hover {
+            color: blue;
+        }
+
+        .hover-yellow:hover {
+            color: yellow;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        #test-zone {
+            width: 50vw;
+            height: 50vh;
+            border: 1px solid black;
+        }
+
+        #free-zone {
+            width: 50%;
+            height: 50%;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+<div id="test-zone"> right click to me
+    <div id="free-zone" class="as-system-context-menu">Vùng này không chặn chuột phải</div>
+    <select>
+        <option>item1</option>
+        <option>item2</option>
+    </select>
+</div>
+<script>
+    absol.ContextCaptor.auto();
+    $('#test-zone').defineEvent('contextmenu').on('contextmenu', function (event) {
+        console.log(event.selectedText);
+        event.showContextMenu({
+            items: [{text: 'Expand Down', value: 1, icon: 'span.mdi.mdi-arrow-expand-down'}, {
+                text: 'Expand Up',
+                value: 2,
+                icon: 'span.mdi.mdi-arrow-expand-up'
+            }]
+        }, function (event) {
+            console.log(event.menuItem.text);
+        });
+    });
+    var info = Object.assign({}, absol.BrowserDetector);
+    delete info.rulesheet;
+    _({
+        tag: 'pre',
+        child: {
+            text: JSON.stringify(info, null, 4)
+        }
+    }).addTo(document.body);
+</script>
+<!--Created using ToHtml.com on 2019-05-27 04:27:01 UTC -->
+</body>
+
+</html>

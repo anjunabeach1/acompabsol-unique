@@ -1,0 +1,161 @@
+:root {
+    --tool-tip-arrow-pos: 50%;
+    --tool-tip-background-color: gray;
+    --tool-tip-text-color: white;
+}
+
+.absol-tooltip {
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    color: var(--tool-tip-text-color);
+}
+
+.absol-tooltip-content {
+    display: block;
+    border-radius: 0.25em;
+    background-color: var(--tool-tip-background-color);
+    padding: 0.25em 0.5em;
+    font-size: inherit;
+}
+
+
+.absol-tooltip-arrow {
+    width: 0;
+    height: 0;
+    position: absolute;
+    box-sizing: content-box;
+    font-size: inherit;
+}
+
+.absol-tooltip.top .absol-tooltip-arrow {
+    border-left: 0.4em solid transparent;
+    border-right: 0.3em solid transparent;
+
+    border-top: 0.3em solid var(--tool-tip-background-color);
+    bottom: 0;
+    left: calc(var(--tool-tip-arrow-pos) - 0.3em);
+}
+
+
+.absol-tooltip.top {
+    padding-bottom: 0.3em;
+}
+
+
+.absol-tooltip.bottom .absol-tooltip-arrow {
+    border-left: 0.3em solid transparent;
+    border-right: 0.4em solid transparent;
+    border-bottom: 0.3em solid var(--tool-tip-background-color);
+
+    top: 0;
+    left: calc(var(--tool-tip-arrow-pos) - 0.3em);
+}
+
+.absol-tooltip.bottom {
+    padding-top: 0.3em;
+}
+
+
+.absol-tooltip.left .absol-tooltip-arrow {
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid var(--tool-tip-background-color);
+
+    right: 0;
+    top: calc(var(--tool-tip-arrow-pos) - 0.3em);
+}
+
+.absol-tooltip.left {
+    padding-right: 0.4em;
+}
+
+
+.absol-tooltip.right .absol-tooltip-arrow {
+    border-top: 0.4em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-right: 0.4em solid var(--tool-tip-background-color);
+
+    left: 0;
+    top: calc(var(--tool-tip-arrow-pos) - 0.3em);
+}
+
+.absol-tooltip.ne .absol-tooltip-arrow {
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid var(--tool-tip-background-color);
+    bottom: -0.3em;
+    left: 0;
+}
+
+.absol-tooltip.nw .absol-tooltip-arrow {
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-right: 0.4em solid var(--tool-tip-background-color);
+    bottom: -0.3em;
+    right: 0;
+}
+
+.absol-tooltip.se .absol-tooltip-arrow {
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid var(--tool-tip-background-color);
+    top: -0.3em;
+    left: 0;
+}
+
+.absol-tooltip.sw .absol-tooltip-arrow {
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-right: 0.4em solid var(--tool-tip-background-color);
+    top: -0.25em;
+    right: 0;
+}
+
+.absol-tooltip.right {
+    padding-left: 0.4em;
+}
+
+
+.absol-tooltip-root {
+    position: relative;
+    width: 0;
+    height: 0;
+}
+
+.absol-tooltip-root-holder {
+    position: fixed;
+    z-index: 100000000;
+    left: 0;
+    top: 0;
+}
+
+.as-copyable-icon-tooltip {
+    font-size: inherit;
+    display: inline-block;
+    vertical-align: middle;
+    color: #428bca;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+.as-copyable-icon-tooltip:hover {
+    background-color: var(--as-transparent-button-hover-color);
+}
+
+.as-copyable-icon-tooltip:active {
+    background-color: var(--as-transparent-button-active-color);
+}
+
+.as-cit-icon {
+    font-size: inherit;
+    color: inherit;
+    display: block;
+}
+
+.as-cit-icon::before {
+    display: block;
+}

@@ -1,0 +1,217 @@
+.absol-onscreen-window {
+    z-index: 1002;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 12em;
+    height: 5em;
+    /*default size*/
+    /* min-width: 12em;
+    min-height: 1.4em; */
+}
+
+
+.absol-onscreen-window > .as-window-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.absol-onscreen-window > .as-window-box > .as-window-box-body {
+    flex-grow: 1;
+}
+
+.as-window-box {
+    position: relative;
+
+    background: white;
+    -webkit-box-shadow: 2px 2px 17px -1px rgba(0, 0, 0, 0.54);
+    -moz-box-shadow: 2px 2px 17px -1px rgba(0, 0, 0, 0.54);
+    box-shadow: 2px 2px 17px -1px rgba(0, 0, 0, 0.54);
+}
+
+.as-window-box-header {
+    display: flex;
+    min-height: 1.4em;
+    position: relative;
+    background-color: rgba(169, 169, 169, 0.15);
+    padding: 0.2em;
+    box-sizing: border-box;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.as-window-box-header-icon-ctn:empty {
+    display: none;
+}
+
+.as-window-box-header-title {
+    flex-grow: 1;
+    padding-left: 0.2em;
+}
+
+.as-window-box-header-button-ctn {
+}
+
+.as-window-box-header-icon {
+    margin-right: 0.2em;
+    font-size: inherit;
+}
+
+span.as-window-box-header-icon {
+    line-height: 1.2em;
+}
+
+svg.as-window-box-header-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+span.as-window-box-header-title {
+    line-height: 1.2em;
+    font-size: 1em;
+    color: rgb(33, 33, 34);
+}
+
+
+.as-window-box-header-button-ctn > button {
+    height: 100%;
+    width: 1em;
+    font-size: 1em;
+    padding: 0;
+    margin: 0 0 0 0.1em;
+    border: none;
+    color: rgb(169, 169, 169);
+    outline: none;
+}
+
+.as-window-box-header-button-ctn > button:hover {
+    color: rgb(103, 103, 103);
+}
+
+.as-window-box-header-button-ctn > button:active {
+    color: rgb(33, 33, 34);
+}
+
+.as-window-box-header-button-ctn > button:hover > .mdi-close {
+    color: rgb(255, 59, 59);
+}
+
+.as-window-box-header-button-ctn > button > span {
+    vertical-align: middle;
+}
+
+.absol-onscreen-window-body-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1.4em;
+    bottom: 0;
+}
+
+
+.absol-onscreen-window-moving-modal {
+    position: fixed;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    z-index: 1000000006;
+}
+
+.absol-onscreen-window-resizer {
+    position: absolute;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-bottom {
+    bottom: -3px;
+    height: 6px;
+    left: 3px;
+    right: 3px;
+    z-index: 3;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-top {
+    top: -3px;
+    height: 6px;
+    left: 3px;
+    right: 3px;
+    z-index: 3;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-left {
+    left: -3px;
+    top: 3px;
+    bottom: 3px;
+    width: 6px;
+    cursor: ew-resize;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-right {
+    right: -3px;
+    top: 3px;
+    bottom: 3px;
+    width: 6px;
+    cursor: ew-resize;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-bottom-right {
+    width: 6px;
+    height: 6px;
+    right: -3px;
+    bottom: -3px;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-bottom-left {
+    width: 6px;
+    height: 6px;
+    left: -3px;
+    bottom: -3px;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-top-left {
+    width: 6px;
+    height: 6px;
+    left: -3px;
+    top: -3px;
+}
+
+.absol-onscreen-window-resizer.absol-onscreen-window-resize-top-right {
+    width: 6px;
+    height: 6px;
+    right: -3px;
+    top: -3px;
+}
+
+
+.absol-onscreen-window-resize-top,
+.absol-onscreen-window-resize-bottom {
+    cursor: ns-resize;
+
+}
+
+.absol-onscreen-window-resize-left,
+.absol-onscreen-window-resize-right {
+    cursor: ew-resize;
+
+}
+
+
+.absol-onscreen-window-resize-bottom-right {
+    cursor: se-resize;
+}
+
+.absol-onscreen-window-resize-bottom-left {
+    cursor: sw-resize;
+}
+
+.absol-onscreen-window-resize-top-left {
+    cursor: nw-resize;
+}
+
+.absol-onscreen-window-resize-top-right {
+    cursor: ne-resize;
+}

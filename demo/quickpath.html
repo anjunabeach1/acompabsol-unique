@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QuickPath</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+    <style>
+        .dark.bg {
+            background-color: rgba(30, 30, 32, 1);
+            /* background-color: white; */
+
+        }
+
+        .bg {
+            padding-top: 10em;
+            padding-bottom: 10em;
+            border: solid 1px rgb(30, 30, 32);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 30em"></div>
+    <div class="demo-row dark bg"></div>
+    <div class="demo-row light bg"></div>
+
+    <div style="height: 30em"></div>
+
+    <script class="viewable">
+        var path = [
+            {
+                name: "My Computer",
+                items: [{ name: "My Computer" }, { name: "Dropbox" }, { name: "OneDrive" }]
+            },
+            {
+                name: "D",
+                items: [{ name: "D" }, { name: "E" }, { name: "F" }]
+            },
+            {
+                name: "Book",
+                iconSrc: 'https://absol.cf/exticons/extra/folder.svg',
+                items: [
+                    { name: "Book" }, { name: "Soft" }, { name: "Hardware" }, { name: "Driver" }, { name: "temp" }
+                ]
+            },
+            {
+                name: "Commic",
+                iconSrc: 'https://absol.cf/exticons/extra/folder-photo.svg',
+                items: [
+                    { name: "Manga", iconSrc: 'https://absol.cf/exticons/extra/folder-image.svg' },
+                    {
+                        name: "Commic",
+                        iconSrc: 'https://absol.cf/exticons/extra/folder-photo.svg'
+                    },
+                    {
+                        name: "Romantic",
+                        iconSrc: 'https://absol.cf/exticons/extra/folder-video.svg'
+                    }
+                ]
+            }
+        ];
+
+        absol._({
+            tag: 'quickpath',
+            style: {
+                fontSize: '1em'
+            },
+            props: {
+                path: path
+            }
+        }).addTo(absol.$('.demo-row.dark.bg'));
+
+        absol._({
+            tag: 'quickpath',
+            style: {
+                fontSize: '1em'
+            },
+            props: {
+                path: path
+            }
+        }).addTo(absol.$('.demo-row.light.bg'));
+    </script>
+
+
+    <script src="https://absol.cf/absol/demo/autohightlighting.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+.as-message-dialog {
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 0.3em;
+    border: 1px solid #dddddd;
+    -webkit-box-shadow: 2px 2px 6px 0px rgba(0, 0, 90, 0.55);
+    -moz-box-shadow: 2px 2px 6px 0px rgba(0, 0, 90, 0.55);
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 90, 0.55);
+}
+
+.as-message-dialog-header {
+    padding: calc(5em / 14) 1em;
+    border-bottom: 1px solid #e9ecef;
+}
+
+
+.as-message-dialog-title {
+    font-size: 1.25em;
+    font-weight: 500;
+}
+
+.as-message-dialog-body {
+    padding: 1em;
+}
+
+.as-message-dialog-footer {
+    text-align: right;
+    padding: 10px 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.as-message-dialog-footer:empty,
+.as-message-dialog-header:empty {
+    display: none;
+}
+
+
+.as-message-dialog-footer button {
+    margin-left: 1.5em;
+}
+
+
+.as-message-dialog-footer button.as-flexicon-button .as-flexicon-button-text-container {
+    padding-left: 2em;
+    padding-right: 2em;
+}

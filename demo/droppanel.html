@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drop Panel</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://absol.cf/hightlight/styles/default.css">
+    <!-- <link rel="stylesheet" href="https://absol.cf/materialdesignicons/materialdesignicons.min.css"> -->
+    <script src="../dist/absol-acomp.js?<?php  echo stat('../dist/absol-acomp.js')['mtime'];?>"></script>
+
+    <script src="https://absol.cf/hightlight/highlight.pack.js"></script>
+    <style>
+        .dark.bg {
+            background-color: rgba(30, 30, 32, 1);
+            /* background-color: white; */
+
+        }
+
+        .bg {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: solid 1px rgb(30, 30, 32);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DropPanel</h1>
+    <div id="exp-node-demo-light" class="bg light" style="font-size: 12px;"></div>
+    <div id="exp-node-demo-dark" class="dark bg" style="font-size: 12px;"></div>
+    <script class="viewable">
+        var exampeTreeParam = {
+            tag: 'exptree',
+            props: {
+                level: 0,
+                name: 'HTML5',
+                desc: 'node_modules/absol',
+                extSrc: 'https://absol.cf/exticons/extra/' + 'folder' + '.svg',
+                title: 'node_modules/absol/src',
+                status: 'open'
+            },
+            on: {
+                press: function () {
+                    if (this.status == 'open') {
+                        this.status = 'close';
+                    }
+                    else {
+                        this.status = 'open';
+                    }
+                }
+            },
+            child: [
+                {
+                    tag: 'exptree',
+                    props: {
+                        name: 'Dom.js',
+                        extSrc: 'https://absol.cf/exticons/vivid/' + 'js' + '.svg',
+                    }
+                },
+                {
+                    tag: 'exptree',
+                    props: {
+                        name: 'EventEmitter.js',
+                        extSrc: 'https://absol.cf/exticons/vivid/' + 'js' + '.svg',
+                    }
+                },
+                {
+                    tag: 'exptree',
+
+                    props: {
+                        name: 'Color',
+                        extSrc: 'https://absol.cf/exticons/extra/' + 'folder' + '.svg',
+                        status: 'open'
+                    },
+                    on: {
+                        press: function () {
+                            if (this.status == 'open') {
+                                this.status = 'close';
+                            }
+                            else {
+                                this.status = 'open';
+                            }
+                        }
+                    },
+                    child: [{
+                        tag: 'exptree',
+                        props: {
+                            name: 'RGB.js',
+                            extSrc: 'https://absol.cf/exticons/vivid/' + 'js' + '.svg',
+                            status: 'modified'
+                        }
+                    },
+                    {
+                        tag: 'exptree',
+                        props: {
+                            name: 'HSL.js',
+                            extSrc: 'https://absol.cf/exticons/vivid/' + 'js' + '.svg',
+                            status: 'removable'
+                        }
+                    }]
+                }
+            ]
+        };
+
+        absol._({
+            tag: 'droppanel',
+            props: {
+                name: 'ACOMP'
+            },
+            child: exampeTreeParam
+        }).addTo(absol.$('#exp-node-demo-light'))
+
+        absol._({
+            tag: 'droppanel',
+            props: {
+                name: 'ACOMP-BLACK'
+            },
+            child: exampeTreeParam
+        }).addTo(absol.$('#exp-node-demo-dark'))
+
+
+
+        absol._({
+            tag: 'droppanel',
+            props: {
+                name: 'VCHART'
+            },
+            child: {
+                tag: 'iframe',
+                style: {
+                    width: '100%',
+                    height: '500px'
+                },
+                attr: {
+                    src: "https://absol.cf/vchart/demo/dualchart.html"
+                }
+            }
+        }).addTo(absol.$('#exp-node-demo-light'))
+    </script>
+
+    <div id="drop-panel-stack-demo-light" class="bg light" style="font-size: 12px;"></div>
+    <script class="viewable">
+        absol._({
+            tag: 'droppanelstack',
+            style: {
+                height: '700px',
+                border: 'solid 1px red',
+                'box-sizing': 'content-box',
+                overflow:'hidden'
+            },
+            child: [
+                {
+                    tag: 'droppanel',
+                    props: {
+                        name: 'ACOMP'
+                    },
+                    child: exampeTreeParam
+                },
+                {
+                    tag: 'droppanel',
+                    props: {
+                        name: 'VCHART'
+                    },
+                    child: {
+                        tag: 'iframe',
+                        style: {
+                            width: '100%',
+                            'min-height':'200',
+                            'height': '500px'
+                        },
+                        attr: {
+                            src: "https://absol.cf/vchart/demo/dualchart.html"
+                        }
+                    }
+                },
+                {
+                    tag: 'droppanel',
+                    props: {
+                        name: 'ACOMP'
+                    },
+                    child: exampeTreeParam
+                }, {
+                    tag: 'droppanel',
+                    props: {
+                        name: 'VCHART'
+                    },
+                    child: {
+                        tag: 'iframe',
+                        style: {
+                            width: '100%',
+                            height: '500px'
+                        },
+                        attr: {
+                            src: "https://absol.cf/vchart/demo/dualchart.html"
+                        }
+                    }
+                }
+            ]
+        }).addTo(absol.$('#drop-panel-stack-demo-light'));
+    </script>
+
+
+    <script src="https://absol.cf/absol/demo/autohightlighting.js"></script>
+
+</body>
+
+</html>

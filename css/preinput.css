@@ -1,0 +1,16 @@
+.as-preinput {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    word-break: normal;
+}
+pre.as-preinput{
+    word-break: normal;
+}
+
+
+.as-preinput img {
+    display: none;
+}
